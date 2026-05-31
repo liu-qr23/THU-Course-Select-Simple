@@ -4,9 +4,9 @@
 // @version      2026-05-31
 // @description  try to take over the world!
 // @author       You
-// @match        https://zhjwxk.cic.tsinghua.edu.cn/xkBks.vxkBksXkbBs.do?m=bxSearch&p_xnxq=2026-2027-1&tokenPriFlag=bx
-// @match        https://zhjwxk.cic.tsinghua.edu.cn/xkBks.vxkBksXkbBs.do?m=rxSearch&p_xnxq=2026-2027-1&tokenPriFlag=rx&is_zyrxk=1
-// @match        https://zhjwxk.cic.tsinghua.edu.cn/xkBks.vxkBksXkbBs.do?m=xxSearch&p_xnxq=2026-2027-1&tokenPriFlag=xx
+// @match        https://zhjwxk.cic.tsinghua.edu.cn/xkBks.vxkBksXkbBs.do?m=bxSearch&*
+// @match        https://zhjwxk.cic.tsinghua.edu.cn/xkBks.vxkBksXkbBs.do?m=rxSearch&*
+// @match        https://zhjwxk.cic.tsinghua.edu.cn/xkBks.vxkBksXkbBs.do?m=xxSearch&*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=tsinghua.edu.cn
 // @grant        none
 // ==/UserScript==
