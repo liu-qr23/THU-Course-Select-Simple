@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         抢课
+// @name         抢课（无按钮秒选）
 // @namespace    http://tampermonkey.net/
 // @version      2026-05-31
 // @description  try to take over the world!
@@ -16,34 +16,11 @@
 (function() {
     'use strict';
 
+    console.log('自动选课触发');
+
     // ==================== 配置 ====================
     const KEYWORD = '操作系统';          // 课程名关键词（大小写不敏感）
     // ===============================================
-
-    function createButtonIfNeeded() {
-        if (document.getElementById('auto-select-btn')) return;
-
-        const btn = document.createElement('button');
-        btn.id = 'auto-select-btn';
-        btn.textContent = `自动抢课：${KEYWORD}`;
-        btn.style.cssText = `
-            position: fixed;
-            top: 20px;
-            left: 30px;
-            z-index: 99999;
-            padding: 10px 20px;
-            background: #2196F3;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            transition: background 0.3s;
-        `;
-        btn.addEventListener('click', trySelectCourse);
-        document.body.appendChild(btn);
-    }
 
     function trySelectCourse() {
         const rows = document.querySelectorAll('#table_t tr.trr2');
@@ -94,5 +71,5 @@
         }
     }
 
-    createButtonIfNeeded();
+    trySelectCourse();
 })();
