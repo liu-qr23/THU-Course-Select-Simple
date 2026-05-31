@@ -77,7 +77,11 @@
             const checkbox = row.querySelector('input[type="checkbox"]');
             if (!checkbox || checkbox.disabled) continue;
             checkbox.checked = true;
+        }
 
+        if (!findCourse) {
+            console.log(`未找到包含 ${KEYWORD} 的课程`);
+        } else {
             // 提交选课
             let submitSuccess = false;
             if (typeof commitXxAdd === 'function') {
@@ -98,10 +102,6 @@
             if (!submitSuccess) {
                 console.log(`提交选课失败：${courseName}`);
             }
-        }
-
-        if (!findCourse) {
-            console.log(`未找到包含 ${KEYWORD} 的课程`);
         }
     }
 
