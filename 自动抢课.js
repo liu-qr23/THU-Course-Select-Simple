@@ -54,11 +54,22 @@
 
         let findCourse = false;
         for (const row of rows) {
-            // 获取课程名
-            const kcmTd = row.querySelector('td[id$="_kcm"]');
-            if (!kcmTd) continue;
-            const courseName = kcmTd.textContent.trim();
-            if (courseName.toLowerCase().indexOf(KEYWORD.toLowerCase()) === -1) continue;
+            // 获取课程所有信息（包括课程名、教师、选课信息等）
+            let allInfo = '';
+            const tds = row.querySelectorAll('td');
+            for (const td of tds) {
+                // 获取 td 中的所有 div 和 span 的文本内容及 title 属性（处理省略号情况）
+                const elements = td.querySelectorAll('div, span');
+                for (const elem of elements) {
+                    allInfo += elem.textContent.trim() + ' ';
+                    // 处理文字省略时的完整内容
+                    if (elem.hasAttribute('title')) {
+                        allInfo += elem.getAttribute('title').trim() + ' ';
+                    }
+                }
+            }
+            // 检查关键词是否匹配任何信息
+            if (allInfo.toLowerCase().indexOf(KEYWORD.toLowerCase()) === -1) continue;
 
             findCourse = true;
 
